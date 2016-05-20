@@ -23,11 +23,20 @@ public:
 public slots:
     void showCamera();
 
+private slots:
+
+    void on_startGame_clicked();
+
 private:
     Ui::MainView *ui;
+    QTimer *timer;
+
+    int hitStartCounter=0;
+    bool isGameStarted;
+
     User *user;
     CameraInteraction *camera;
-    QTimer *timer;
+
 
 };
 

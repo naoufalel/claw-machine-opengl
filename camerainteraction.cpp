@@ -22,16 +22,10 @@ CameraInteraction::CameraInteraction(QWidget *parent) : QWidget(parent)
     cap >> frame1;
     // Mirror effect
     cv::flip(frame1,frame1,1);
-    // Extract rect1 and convert to gray
-    //cv::cvtColor(Mat(frame1,rect),frameRect1,COLOR_BGR2GRAY);
-    Mat(frame1,rect).copyTo(frameRect1);
-//    cap.set(CV_CAP_PROP_FRAME_WIDTH,500);
-//    cap.set(CV_CAP_PROP_FRAME_HEIGHT,200);
-    this->rect = rect;
 
-//    timer = new QTimer(this);
-//    connect(timer, SIGNAL(timeout()), this, SLOT(displayCamera()));
-//    timer->start(30);
+    Mat(frame1,rect).copyTo(frameRect1);
+
+    this->rect = rect;
 
 }
 
@@ -48,8 +42,6 @@ void CameraInteraction::displayCamera(QLabel *label){
     // Mirror effect
     cvtColor(frame2,frame2, CV_BGR2RGB);
     cv::flip(frame2,frame2,1);
-    // Extract rect2 and convert to gray
-    //cv::cvtColor(Mat(frame2,rect),frameRect2,COLOR_BGR2GRAY);
     Mat(frame2,rect).copyTo(frameRect2);
 
     // Compute optical flow
@@ -89,7 +81,7 @@ void CameraInteraction::displayCamera(QLabel *label){
 }
 
 
-void CameraInteraction::detectAndTrackHand(){
+void CameraInteraction::detectHand(){
 
 }
 

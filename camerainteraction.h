@@ -20,7 +20,7 @@ class CameraInteraction : public QWidget
 public:
     explicit CameraInteraction(QWidget *parent = 0);
     void displayCamera(QLabel *label);
-    void detectAndTrackHand();
+    void detectHand();
     bool isFlowCorrect(float u);
     void calc_mean(Mat flow1,float &um, float &vm);
 
