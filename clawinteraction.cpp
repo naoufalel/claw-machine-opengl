@@ -10,10 +10,6 @@ ClawInteraction::ClawInteraction(QWidget *parent):
     xRot = 0;
     yRot = 0;
     zRot = 0;
-    //x=0;
-    //y=0;
-
-    //ballR = new BallRandom();
 }
 
 ClawInteraction::~ClawInteraction(){
@@ -152,65 +148,10 @@ void ClawInteraction::loadGLTexture()
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_REPEAT);
 }
 
-void ClawInteraction::sphere(int lats, int longs, float r)
-{
-    int i, j;
-    for(i = 0; i <= lats; i++)
-    {
-        double lat0 = M_PI * (-0.5 + (double) (i - 1) / lats);
-        double z0  = sin(lat0);
-        double zr0 =  cos(lat0);
-
-        double lat1 = M_PI * (-0.5 + (double) i / lats);
-        double z1 = sin(lat1);
-        double zr1 = cos(lat1);
-
-        glBegin(GL_QUAD_STRIP);
-        for(j = 0; j <= longs; j++)
-        {
-            double lng = 2 * M_PI * (double) (j - 1) / longs;
-            double x = r*cos(lng);
-            double y = r*sin(lng);
-            glNormal3f(x * zr0, y * zr0, r*z0);
-            glVertex3f(x * zr0, y * zr0, r*z0);
-            glNormal3f(x * zr1, y * zr1, r*z1);
-            glVertex3f(x * zr1, y * zr1, r*z1);
-        }
-        glEnd();
-    }
-}
-
-
-
-
-/*void MyGLWidget::drawSphere(){
-    // x^2 + y^2 = 49
- float x=moveX->move();
-    glPushMatrix();
-        glTranslatef(x,0,0);
-        glColor3f(0,1,0);
-        sphere(100, 100, 1.5);
-    glPopMatrix();
-}*/
-
 
 void ClawInteraction::draw()
 {
-
-//   // x^2 + y^2 = 49
-////    glPushMatrix();
-////        glTranslatef(x,y,0);
-////        glColor3f(0,1,0);
-////        sphere(100, 100, 1.5);
-////    glPopMatrix();
-//    glPushMatrix();
-//        glTranslatef(x+10,y+10,0);
-//        glColor3f(0,1,0);
-//        sphere(100, 100, 1.5);
-//    glPopMatrix();
-
     ballR.drawBall();
-
 }
 
 
