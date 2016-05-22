@@ -2,15 +2,16 @@
 #define SCORE_H
 
 #include <QObject>
+#include <QWidget>
 
 using namespace std;
 
 
-class Score : public QObject
+class Score : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Score(QObject *parent = 0);
+    explicit Score(QWidget *parent = 0);
 
 signals:
 

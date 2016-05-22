@@ -12,6 +12,8 @@ class User : public QObject
     Q_OBJECT
 public:
     explicit User(QObject *parent = 0);
+    void setUserName(string username){ this->username = username;}
+    string getUserName(){ return this->username;}
 
 signals:
 

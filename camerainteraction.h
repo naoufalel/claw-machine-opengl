@@ -5,13 +5,16 @@
 #include <QWidget>
 #include <QTimer>
 #include <QLabel>
+#include <algorithm>
+#include <vector>
+#include <QDebug>
 
 #include "opencv2/opencv.hpp"
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
-
+using namespace std;
 using namespace cv;
 
 class CameraInteraction : public QWidget
@@ -21,6 +24,12 @@ public:
     explicit CameraInteraction(QWidget *parent = 0);
     void displayCamera(QLabel *label);
     void detectHand();
+
+    Mat Testmm(Mat frame);
+    double dist(Point x,Point y);
+    pair<Point,double> circleFromPoints(Point p1, Point p2, Point p3);
+
+
     bool isFlowCorrect(float u);
     void calc_mean(Mat flow1,float &um, float &vm);
 
@@ -41,6 +50,19 @@ private:
     Rect rect;
     Point p1;
     Point p2;
+
+
+    Rect            rectRoi;
+    Rect            rectRoiRech; //Rectangle de recherche.
+    Point           posrectRoiRech;
+
+    Mat             templ;
+
+    Mat back;
+    Mat fore;
+    int backgroundFrame=500;
+    vector<pair<Point,double> > palm_centers;
+    BackgroundSubtractorMOG2 bg;
 
 };
 

@@ -17,13 +17,17 @@ SOURCES += main.cpp\
     user.cpp \
     score.cpp \
     camerainteraction.cpp \
-    clawinteraction.cpp
+    clawinteraction.cpp \
+    ballrandom.cpp \
+    clawmechanism.cpp
 
 HEADERS  += mainview.h \
     user.h \
     score.h \
     camerainteraction.h \
-    clawinteraction.h
+    clawinteraction.h \
+    ballrandom.h \
+    clawmechanism.h
 
 FORMS    += mainview.ui \
     scores.ui
