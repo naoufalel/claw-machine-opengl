@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QGLWidget>
 #include "ballrandom.h"
+#include "clawmechanism.h"
 
 class ClawInteraction : public QGLWidget
 {
@@ -52,6 +53,7 @@ private:
     QPoint lastPos;
 
     BallRandom ballR;
+    ClawMechanism clawHand;
 };
 
 #endif // CLAWINTERACTION_H
