@@ -29,7 +29,6 @@ protected:
     QSize sizeHint() const;
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
 
 
 

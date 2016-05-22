@@ -13,14 +13,14 @@ public:
 
     void drawBall();
 
-    double getX() const;
-    void setX(double value);
+    const double getX(){return x;}
+    void setX(double x) {this->x = x;}
 
-    double getY() const;
-    void setY(double value);
+    const double getY() {return y;}
+    void setY(double y){this->y = y;}
 
-    double getZ() const;
-    void setZ(double value);
+    const double getZ() {return z;}
+    void setZ(double z){this->z = z;}
 
 
 

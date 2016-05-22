@@ -22,32 +22,3 @@ void BallRandom::drawBall(){
     glPopMatrix();
 
 }
-
-double BallRandom::getX() const
-{
-    return x;
-}
-
-void BallRandom::setX(double value)
-{
-    x = value;
-}
-double BallRandom::getY() const
-{
-    return y;
-}
-
-void BallRandom::setY(double value)
-{
-    y = value;
-}
-double BallRandom::getZ() const
-{
-    return z;
-}
-
-void BallRandom::setZ(double value)
-{
-    z = value;
-}
-
