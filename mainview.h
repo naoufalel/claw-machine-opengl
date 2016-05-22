@@ -48,7 +48,6 @@ private:
     User *user;
     Score *scores;
     CameraInteraction *camera;
-//    ClawInteraction *claw;
 
     int hitStartCounter=0;
     bool isGameStarted;

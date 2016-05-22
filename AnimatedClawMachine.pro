@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     camerainteraction.cpp \
     clawinteraction.cpp \
     ballrandom.cpp \
-    clawmechanism.cpp
+    clawmechanism.cpp \
+    basecube.cpp
 
 HEADERS  += mainview.h \
     user.h \
@@ -27,7 +28,8 @@ HEADERS  += mainview.h \
     camerainteraction.h \
     clawinteraction.h \
     ballrandom.h \
-    clawmechanism.h
+    clawmechanism.h \
+    basecube.h
 
 FORMS    += mainview.ui \
     scores.ui

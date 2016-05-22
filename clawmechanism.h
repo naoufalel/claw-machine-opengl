@@ -20,8 +20,11 @@ public:
     const double getZ() {return z;}
     void setZ(double z){this->z = z;}
 
-    const double getAngleToOpenCloseHand() {return angleToOpenCloseHand;}
-    void setZ(double a){this->angleToOpenCloseHand = a;}
+    const double getAngleToOpenCloseHand() {return this->angleToOpenCloseHand;}
+    void setAngleToOpenCloseHand(double a){this->angleToOpenCloseHand = a;}
+
+    const double getAngleWhenMovement() {return this->angleWhenMovement;}
+    void setAngleWhenMovement(double a){this->angleWhenMovement = a;}
 
 
 signals:
@@ -39,6 +42,7 @@ private:
     double z;
 
     double angleToOpenCloseHand;
+    double angleWhenMovement;
 
 
 };

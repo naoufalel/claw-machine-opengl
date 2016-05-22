@@ -8,9 +8,8 @@ MainView::MainView(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    camera = new CameraInteraction(parent);
+    //camera = new CameraInteraction(parent);
     user = new User();
-//    claw = new ClawInteraction(parent);
 
 //    timer = new QTimer(this);
 //    connect(timer, SIGNAL(timeout()), this, SLOT(showCamera()));
