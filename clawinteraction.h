@@ -6,6 +6,7 @@
 #include <QGLWidget>
 #include "ballrandom.h"
 #include "clawmechanism.h"
+#include "basecube.h"
 
 class ClawInteraction : public QGLWidget
 {
@@ -18,6 +19,9 @@ public:
     void draw();
     void moveBall(double posX=5.0, double posY=5.0, double posZ=1.0, int nbPas=100);
     BallRandom &getBall(){return ballR;}
+    BaseCube &getBase(){return base;}
+
+    void randomBallDraw();
 
 
 protected:
@@ -30,6 +34,8 @@ protected:
     QSize sizeHint() const;
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
+    void setZTranslation(int distance);
 
 
 
@@ -43,6 +49,7 @@ signals:
     void xRotationChanged(int angle);
     void yRotationChanged(int angle);
     void zRotationChanged(int angle);
+    void zTransChanged(int dist);
 
 private:
     GLuint m_texture[1];
@@ -50,10 +57,12 @@ private:
     int xRot;
     int yRot;
     int zRot;
+    int zTra;
     QPoint lastPos;
 
     BallRandom ballR;
     ClawMechanism clawHand;
+    BaseCube base;
 };
 
 #endif // CLAWINTERACTION_H

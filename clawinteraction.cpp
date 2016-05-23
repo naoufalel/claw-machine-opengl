@@ -10,6 +10,7 @@ ClawInteraction::ClawInteraction(QWidget *parent):
     xRot = 0;
     yRot = 0;
     zRot = 0;
+    zTra = 0;
 }
 
 ClawInteraction::~ClawInteraction(){
@@ -70,11 +71,15 @@ void ClawInteraction::initializeGL()
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
     glShadeModel(GL_SMOOTH);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+//    glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHT0);
 
-    static GLfloat lightPosition[4] = { 0, 0, 10, 1.0 };
-    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+//    static GLfloat lightPosition[4] = { 0, 0, 10, 1.0 };
+//    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+    glAlphaFunc ( GL_GREATER, 0.1 ) ;
+    glEnable ( GL_ALPHA_TEST ) ;
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
 
@@ -130,6 +135,19 @@ void ClawInteraction::mouseMoveEvent(QMouseEvent *event)
 }
 
 
+// Zoom
+void ClawInteraction::setZTranslation(int dist)
+{
+    zTra += dist;
+    emit zTransChanged(dist);
+    updateGL();
+}
+
+
+void ClawInteraction::wheelEvent(QWheelEvent *event)
+{
+    setZTranslation(event->delta()/16);
+}
 
 
 void ClawInteraction::loadGLTexture()
@@ -151,7 +169,16 @@ void ClawInteraction::loadGLTexture()
 
 void ClawInteraction::draw()
 {
-    ballR.drawBall();
+    randomBallDraw();
+    base.draw();
+}
+
+void ClawInteraction::randomBallDraw(){
+    int atBaseLevel = - base.getLimit() - ballR.getRadius();
+    glPushMatrix();
+        glTranslatef(0,atBaseLevel,0);
+            ballR.drawBall();
+    glPopMatrix();
 }
 
 

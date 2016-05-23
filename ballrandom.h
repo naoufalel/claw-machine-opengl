@@ -22,6 +22,9 @@ public:
     const double getZ() {return z;}
     void setZ(double z){this->z = z;}
 
+    double getRadius(){return this->radius;}
+    void setRadius(double value){this->radius = value;}
+
 
 
 signals:
@@ -33,7 +36,7 @@ private:
     double x;
     double y;
     double z;
-    float radius;
+    double radius;
     GLUquadricObj *obj;
 };
 

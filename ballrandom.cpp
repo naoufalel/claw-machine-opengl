@@ -2,11 +2,10 @@
 
 BallRandom::BallRandom(QObject *parent) : QObject(parent)
 {
-    radius=2;
+    radius=1;
     x=0;
     y=0;
     z=0;
-
 
 }
 

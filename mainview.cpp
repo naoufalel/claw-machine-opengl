@@ -93,6 +93,10 @@ void MainView::animate()
 
 void MainView::on_moveBall_clicked()
 {
-    ui->clawShowing->getBall().setX(ui->clawShowing->getBall().getX()+1);
+    int a = ui->clawShowing->getBase().getLimit();
+    if(ui->clawShowing->getBall().getX()<a){
+        ui->clawShowing->getBall().setX(ui->clawShowing->getBall().getX()+1%a);
+    }
+
     ui->clawShowing->updateGL();
 }
