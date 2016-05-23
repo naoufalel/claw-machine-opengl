@@ -12,6 +12,8 @@ public:
     explicit BaseCube(QObject *parent = 0);
     void draw();
 
+    void drawExit();
+
     int getLimit(){return this->areteLength;}
 signals:
 
@@ -20,6 +22,7 @@ public slots:
 private:
 
     int areteLength;
+    double arete;
     GLUquadricObj *obj;
 
 
